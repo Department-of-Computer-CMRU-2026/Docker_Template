@@ -27,7 +27,9 @@ RUN curl -fsSL https://bun.sh/install | bash
 ENV PATH="/root/.bun/bin:${PATH}"
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd zip
+RUN pecl install redis \
+    && docker-php-ext-enable redis \
+    && docker-php-ext-install pdo pdo_pgsql pgsql mbstring exif pcntl bcmath gd zip
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -39,5 +41,18 @@ RUN mkdir -p /home/$user/.composer && \
 
 # Set working directory
 WORKDIR /var/www
+RUN chown -R $user:$user /var/www
 
 USER $user
+
+# Copy composer files
+COPY --chown=$user:$user composer.json composer.lock ./
+
+# Install dependencies
+RUN composer install --no-scripts --no-autoloader --prefer-dist
+
+# Copy application code
+COPY --chown=$user:$user . .
+
+# Finish composer
+RUN composer dump-autoload --optimize
