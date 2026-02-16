@@ -58,6 +58,7 @@ docker-compose up -d
 - **Service**: `db` → ชื่อ Container: `std<ID>-db`
 - **Network**: `std<ID>-network`
 - **Volume**: `std<ID>-db-data` (ข้อมูลฐานข้อมูลแยกกัน)
+- **Resource Limits**: จำกัดทรัพยากร (CPU/RAM) เพื่อให้รันได้หลายคนพร้อมกัน
 
 > [!WARNING]
 >Container และข้อมูลของนักศึกษา A ไม่ชนกับของนักศึกษา B แม้จะรันบนเครื่องเดียวกัน
