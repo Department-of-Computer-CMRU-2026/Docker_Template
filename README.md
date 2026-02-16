@@ -59,6 +59,7 @@ docker-compose up -d
 - **Network**: `std<ID>-network`
 - **Volume**: `std<ID>-db-data` (ข้อมูลฐานข้อมูลแยกกัน)
 - **Resource Limits**: จำกัดทรัพยากร (CPU/RAM) เพื่อให้รันได้หลายคนพร้อมกัน
+- **Log Rotation**: จำกัดขนาด Log File (10MB, max 3 files) ไม่ให้กินพื้นที่ Server
 
 > [!WARNING]
 >Container และข้อมูลของนักศึกษา A ไม่ชนกับของนักศึกษา B แม้จะรันบนเครื่องเดียวกัน

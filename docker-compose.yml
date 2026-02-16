@@ -34,6 +34,11 @@ services:
         limits:
           cpus: '0.50'
           memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   # Nginx Web Server
   nginx:
@@ -58,6 +63,11 @@ services:
         limits:
           cpus: '0.20'
           memory: 128M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   # PostgreSQL Database
   db:
@@ -82,6 +92,11 @@ services:
         limits:
           cpus: '0.50'
           memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 networks:
   app_network:
