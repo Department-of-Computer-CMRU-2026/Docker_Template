@@ -57,6 +57,7 @@ docker-compose up -d
 - **Service**: `app` → ชื่อ Container: `std<ID>-app`
 - **Service**: `db` → ชื่อ Container: `std<ID>-db`
 - **Network**: `std<ID>-network`
-- **Volume**: `std<ID>-db-data` (ข้อมูลฐานข้อมูลแยกกัน ไม่ซ้ำแน่นอน)
+- **Volume**: `std<ID>-db-data` (ข้อมูลฐานข้อมูลแยกกัน)
 
-สิ่งนี้ช่วยให้ Container และข้อมูลของนักศึกษา A ไม่ชนกับของนักศึกษา B แม้จะรันบนเครื่องเดียวกัน
+> [!WARNING]
+>Container และข้อมูลของนักศึกษา A ไม่ชนกับของนักศึกษา B แม้จะรันบนเครื่องเดียวกัน
