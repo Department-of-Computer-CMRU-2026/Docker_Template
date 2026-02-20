@@ -1,0 +1,15 @@
+.git
+.env
+node_modules
+public/hot
+public/storage
+storage/*.key
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views
+bootstrap/cache
+vendor
+*.log
+.phpunit.cache
+.idea
+.vscode
