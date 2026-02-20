@@ -54,5 +54,12 @@ RUN composer install --no-scripts --no-autoloader --prefer-dist
 # Copy application code
 COPY --chown=$user:$user . .
 
+# --- เพิ่มส่วนนี้เข้าไปครับ ---
+RUN mkdir -p bootstrap/cache storage/framework/sessions storage/framework/views storage/framework/cache
+RUN chmod -R 775 bootstrap/cache storage
+
+# เพิ่มต่อจากบรรทัด chmod ที่เราเพิ่งแก้
+RUN git config --global --add safe.directory /var/www
+
 # Finish composer
 RUN composer dump-autoload --optimize
