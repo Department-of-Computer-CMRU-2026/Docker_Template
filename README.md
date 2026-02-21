@@ -56,12 +56,12 @@ docker-compose up -d --build
 
 ### โครงสร้าง `docker-compose.yml`
 ไฟล์นี้จะใช้ `STUDENT_NAME` ของคุณเพื่อสร้างชื่อ Resource ที่ไม่ซ้ำกัน:
-- **Service**: `app` → ชื่อ Container: `${STUDENT_NAME}-smartclass-app`
-- **Service**: `nginx` → ชื่อ Container: `${STUDENT_NAME}-smartclass-nginx`
-- **Service**: `db` → ชื่อ Container: `${STUDENT_NAME}-smartclass-db`
-- **Network**: `${STUDENT_NAME}-smartclass-net`
-- **Volume**: `${STUDENT_NAME}-smartclass-db-data` (ข้อมูลฐานข้อมูลแยกกัน)
-- **Volume**: `${STUDENT_NAME}-smartclass-storage-data` (ข้อมูลไฟล์อัปโหลด)
+- **Service**: `app` → ชื่อ Container: `${STUDENT_NAME}-app`
+- **Service**: `nginx` → ชื่อ Container: `${STUDENT_NAME}-nginx`
+- **Service**: `db` → ชื่อ Container: `${STUDENT_NAME}-db`
+- **Network**: `${STUDENT_NAME}-net`
+- **Volume**: `${STUDENT_NAME}-db-data` (ข้อมูลฐานข้อมูลแยกกัน)
+- **Volume**: `${STUDENT_NAME}-storage-data` (ข้อมูลไฟล์อัปโหลด)
 
 > [!WARNING]
 > Container และข้อมูลของนักศึกษา A ไม่ชนกับของนักศึกษา B แม้จะรันบนเครื่องเดียวกัน ตราบใดที่ตั้งค่า `STUDENT_NAME` และ Port ไม่ซ้ำกัน
